@@ -1,4 +1,4 @@
-import { readUsers,writeUsers } from "../utils/readWriteFile.js";
+import { readUsers,writeUsers,writeReceipts } from "../utils/readWriteFile.js";
 import fs from 'fs/promises'
 
 export async function createNewUser(req, res) {
@@ -13,6 +13,8 @@ export async function createNewUser(req, res) {
         users.push(user)
         await writeUsers(users)
         res.status(200).json({ message: "User registered successfully", data: users });
+    } else {
+        res.status(404).json({ msg: "error:username olready exsist" + err.message, data: null })
     }
     } catch (err){
         console.error(err);
@@ -20,4 +22,7 @@ export async function createNewUser(req, res) {
     }
 }
 
+export async function UserPurchaseSummary(req,res) {
+    
+}
 
