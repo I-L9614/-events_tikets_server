@@ -11,6 +11,11 @@ export async function readEvents() {
     return JSON.parse(events)
 }
 
+export async function readReceipts() {
+    const receipts = await fs.readFile('receipts.json','utf8')
+    return JSON.parse(events)
+}
+
 export async function writeUsers(users) {
     await fs.writeFile('users.json', JSON.stringify(users, null, 2))
 }
@@ -18,4 +23,8 @@ export async function writeUsers(users) {
 
 export async function writeEvents(events) {
     await fs.writeFile('events.json', JSON.stringify(events, null, 2))
+}
+
+export async function writeReceipts(receipts) {
+    await fs.writeFile('receipts.json', JSON.stringify(receipts, null, 2))
 }
