@@ -4,8 +4,8 @@ import fs from 'fs/promises'
 export async function createNewUser(req, res) {
     try {
     const users = await readUsers()
-    const index = users.findIndex(user => user.id === req.body.username)
-    if (!index) {
+    const isUser = users.find(user => user.username === req.body.username)
+    if (!isUser) {
         const user  = {
             username:req.body.username,
             password:req.body.password
@@ -14,7 +14,7 @@ export async function createNewUser(req, res) {
         await writeUsers(users)
         res.status(200).json({ message: "User registered successfully", data: users });
     } else {
-        res.status(404).json({ msg: "error:username olready exsist" + err.message, data: null })
+        res.status(404).json({ msg: "eror:username olready exsist" , data: null })
     }
     } catch (err){
         console.error(err);
