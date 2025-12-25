@@ -5,16 +5,14 @@ import * as ticketsControllers from '../controllers/ticketsControllers.js'
 
 const router = express.Router()
 
-router.route('/users/register')
+router.route('/register')
     .post(userControllers.createNewUser)
 
-router.route('/creator/events')
-    .post(eventsControllers.createEvent)
 
-router.route('/users/tickets/buy')
+router.route('tickets/buy')
     .post(ticketsControllers.buyTickets)
 
-router.route('/users/:username/summary')
+router.route('/:username/summary')
     .get()
 
 
