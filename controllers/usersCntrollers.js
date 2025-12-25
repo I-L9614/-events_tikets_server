@@ -4,10 +4,10 @@ import fs from 'fs/promises'
 export async function createNewUser(req, res) {
     try {
     const users = await readUsers()
-    const index = users.findIndex(user => user.id === req.body.userName)
+    const index = users.findIndex(user => user.id === req.body.username)
     if (!index) {
         const user  = {
-            userName:req.body.userName,
+            username:req.body.username,
             password:req.body.password
         }
         users.push(user)
