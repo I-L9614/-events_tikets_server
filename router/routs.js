@@ -5,7 +5,7 @@ import * as ticketsControllers from '../controllers/ticketsControllers.js'
 
 const router = express.Router()
 
-router.route('/user/register')
+router.route('/users/register')
     .post(userControllers.createNewUser)
 
 router.route('/creator/events')
